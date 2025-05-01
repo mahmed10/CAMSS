@@ -43,6 +43,11 @@ make docker-run
 ```
 2. or further use to docker environment
 - To stop the environmnet: `make docker-stop`
-- To resume the environmente: `make docker-resume` 
+- To resume the environmente: `make docker-resume`
+
+For coding open a web browser ip_address:jupyter_port
+```http://localhost:18888```
+
+## Dataset Prep
 
 **We will release the code soon**
