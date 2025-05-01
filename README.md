@@ -22,6 +22,30 @@ Trained on Cityscape dataset and tested on SemanticKITTI, ACDC, CADEdgeTune data
   <img src="demo/qualitative.png" width="720">
 </p>
 
-## Table of Content
+## Prerequisite
+To install the docker environment, first edit the `docker_env/Makefile`
+```
+IMAGE=img_name/dl-aio
+CONTAINER=containter_name
+AVAILABLE_GPUS='0,1,2,3'
+LOCAL_JUPYTER_PORT=18888
+LOCAL_TENSORBOARD_PORT=18006
+PASSWORD=yourpassword
+WORKSPACE=workspace_directory
+```
+edit the `img_name`, `containter_name`, `available_gpus`, `jupyter_port`, `tensorboard_port`, `password`, `workspace_directory`
+
+for the first time run the following commands in terminal
+```
+cd docker_env
+make docker-build
+make docker-run
+```
+
+for further use to docker environment
+
+to stop the environmnet `make docker-stop`
+
+to resume the environmente `make docker-resume` 
 
 **We will release the code soon**
