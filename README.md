@@ -79,4 +79,47 @@ Four Dataset is used in the work
 |----acdc.yaml #configuration file for ACDC dataset
 ```
 
+## Weights
+To download the pretrained weights please visit [Hugging Face Repo](https://huggingface.co/mahmed10/CAM-Seg)
+- **LDM model** Pretrained model from Rombach et al.'s Latent Diffusion Models is used [Link](https://huggingface.co/mahmed10/CAM-Seg/resolve/main/pretrained_models/vae/modelf16.ckpt)
+- **MAR model** Following mar model is used
+  | Training Data | Model     | Params | Link |
+|---------------|-----------|--------|------|
+| Cityscape     | Mar-base  | 217M   | [link](https://huggingface.co/mahmed10/CAM-Seg/resolve/main/pretrained_models/mar/city768.16.pth) |
+
+Download this weight files and organize as follow
+```
+|-pretrained_models
+|----mar
+|--------city768.16.pth
+|----vae
+|--------modelf16.ckpt
+```
+
+**Alternative code to automatically download pretrain weights**
+```
+import os
+import requests
+
+# Define URLs and file paths
+files_to_download = {
+    "https://huggingface.co/mahmed10/CAM-Seg/resolve/main/pretrained_models/vae/modelf16.ckpt":
+        "pretrained_models/vae/modelf16.ckpt",
+    "https://huggingface.co/mahmed10/CAM-Seg/resolve/main/pretrained_models/mar/city768.16.pth":
+        "pretrained_models/mar/city768.16.pth"
+}
+
+for url, path in files_to_download.items():
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+
+    print(f"Downloading from {url}...")
+    response = requests.get(url, stream=True)
+    if response.status_code == 200:
+        with open(path, 'wb') as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                f.write(chunk)
+        print(f"Saved to {path}")
+    else:
+        print(f"Failed to download from {url}, status code {response.status_code}")
+```
 **We will release the code soon**
