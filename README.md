@@ -23,7 +23,7 @@ Trained on Cityscape dataset and tested on SemanticKITTI, ACDC, CADEdgeTune data
 </p>
 
 ## Prerequisite
-To install the docker environment, first edit the `docker_env/Makefile`
+To install the docker environment, first edit the `docker_env/Makefile`:
 ```
 IMAGE=img_name/dl-aio
 CONTAINER=containter_name
@@ -33,19 +33,16 @@ LOCAL_TENSORBOARD_PORT=18006
 PASSWORD=yourpassword
 WORKSPACE=workspace_directory
 ```
-edit the `img_name`, `containter_name`, `available_gpus`, `jupyter_port`, `tensorboard_port`, `password`, `workspace_directory`
+- Edit the `img_name`, `containter_name`, `available_gpus`, `jupyter_port`, `tensorboard_port`, `password`, `workspace_directory`
 
-for the first time run the following commands in terminal
+1. For the first time run the following commands in terminal:
 ```
 cd docker_env
 make docker-build
 make docker-run
 ```
-
-for further use to docker environment
-
-to stop the environmnet `make docker-stop`
-
-to resume the environmente `make docker-resume` 
+2. or further use to docker environment
+- To stop the environmnet: `make docker-stop`
+- To resume the environmente: `make docker-resume` 
 
 **We will release the code soon**
