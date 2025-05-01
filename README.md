@@ -48,6 +48,35 @@ make docker-run
 For coding open a web browser ip_address:jupyter_port
 ```http://localhost:18888```
 
-## Dataset Prep
+## Dataset
+Four Dataset is used in the work
+1. [Cityscapes Dataset](https://www.cityscapes-dataset.com/)
+2. [KITTI Dataset](https://www.cvlibs.net/datasets/kitti/eval_step.php)
+3. [ACDC Dataset](https://acdc.vision.ee.ethz.ch/)
+4. [CAD-EdgeTune Dataset](https://ieee-dataport.org/documents/cad-edgetune)
+
+**Modify the trainlist and vallist file to edit train and test split**
+
+### Dataset structure
+- Cityscapes Dataset
+```
+|-CityScapes
+|----leftImg8bit #contians the RGB images
+|----gtFine #contains semantic segmentation labels
+|----trainlist.txt #image list used for training
+|----vallist.txt #image list used for testing
+|----cityscape.yaml #configuration file for Cityscapes dataset
+```
+
+- ACDC Dataset
+```
+|-ACDC
+|----rgb_anon #contians the RGB images
+|----gt #contains semantic segmentation labels
+|----vallist_fog.txt #image list used for testing fog data
+|----vallist_rain.txt #image list used for testing rain data
+|----vallist_snow.txt #image list used for testing snow data
+|----acdc.yaml #configuration file for ACDC dataset
+```
 
 **We will release the code soon**
