@@ -83,9 +83,10 @@ Four Dataset is used in the work
 To download the pretrained weights please visit [Hugging Face Repo](https://huggingface.co/mahmed10/CAM-Seg)
 - **LDM model** Pretrained model from Rombach et al.'s Latent Diffusion Models is used [Link](https://huggingface.co/mahmed10/CAM-Seg/resolve/main/pretrained_models/vae/modelf16.ckpt)
 - **MAR model** Following mar model is used
-  | Training Data | Model     | Params | Link |
-|---------------|-----------|--------|------|
-| Cityscape     | Mar-base  | 217M   | [link](https://huggingface.co/mahmed10/CAM-Seg/resolve/main/pretrained_models/mar/city768.16.pth) |
+|Training Data|Model|Params|Link|
+|-------------|-----|------|----|
+|City | Mar-base| 217M|[link](https://huggingface.co/mahmed10/CAM-Seg/resolve/main/pretrained_models/mar/city768.16.pth)|
+
 
 Download this weight files and organize as follow
 ```
@@ -122,4 +123,18 @@ for url, path in files_to_download.items():
     else:
         print(f"Failed to download from {url}, status code {response.status_code}")
 ```
-**We will release the code soon**
+
+## Validation
+Open the `validation.ipnyb` file
+
+Edit the **Block 6** to select which dataset is to use for validation
+
+Run all the blocks
+
+## Training
+**We will release the training code by May 10th**
+
+## Acknowlegement
+The code is developed on top following codework
+1. [latent-diffusion](https://github.com/CompVis/latent-diffusion)
+2. [mar](https://github.com/LTH14/mar)
