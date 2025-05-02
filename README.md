@@ -86,7 +86,7 @@ To download the pretrained weights please visit [Hugging Face Repo](https://hugg
 
 |Training Data|Model|Params|Link|
 |-------------|-----|------|----|
-|City | Mar-base| 217M|[link](https://huggingface.co/mahmed10/CAM-Seg/resolve/main/pretrained_models/mar/city768.16.pth)|
+|Cityscapes | Mar-base| 217M|[link](https://huggingface.co/mahmed10/CAM-Seg/resolve/main/pretrained_models/mar/city768.16.pth)|
 
 
 Download this weight files and organize as follow
