@@ -83,6 +83,7 @@ Four Dataset is used in the work
 To download the pretrained weights please visit [Hugging Face Repo](https://huggingface.co/mahmed10/CAM-Seg)
 - **LDM model** Pretrained model from Rombach et al.'s Latent Diffusion Models is used [Link](https://huggingface.co/mahmed10/CAM-Seg/resolve/main/pretrained_models/vae/modelf16.ckpt)
 - **MAR model** Following mar model is used
+
 |Training Data|Model|Params|Link|
 |-------------|-----|------|----|
 |City | Mar-base| 217M|[link](https://huggingface.co/mahmed10/CAM-Seg/resolve/main/pretrained_models/mar/city768.16.pth)|
