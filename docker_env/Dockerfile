@@ -175,7 +175,8 @@ RUN pip --no-cache-dir install \
     torchvision==0.19.1 \
     torchaudio==2.4.1 \
     torch-fidelity==0.3.0 \
-    timm
+    timm \
+    pytorch-lightning
 
 
 # Create a symbolic link for python3 to python
