@@ -22,6 +22,22 @@ Trained on Cityscape dataset and tested on SemanticKITTI, ACDC, CADEdgeTune data
   <img src="demo/qualitative.png" width="720">
 </p>
 
+Quantitative results of semantic segmentation under various noise conditions
+<table>
+  <tr>
+    <td align="center"><img src="demo/saltpepper_noise.png" width="150"/><br>Salt & Pepper Noise</td>
+    <td align="center"><img src="demo/motion_blur.png" width="150"/><br>Motion Blur</td>
+    <td align="center"><img src="demo/gaussian_noise.png" width="150"/><br>Gaussian Noise</td>
+    <td align="center"><img src="demo/gaussian_blur.png" width="150"/><br>Gaussian Blur</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="demo/brightness.png" width="150"/><br>Brightness Variation</td>
+    <td align="center"><img src="demo/contrast.png" width="150"/><br>Contrast Variation</td>
+    <td align="center"><img src="demo/saturation.png" width="150"/><br>Saturation Variation</td>
+    <td align="center"><img src="demo/hue.png" width="150"/><br>Hue Variation</td>
+  </tr>
+</table>
+
 ## Prerequisite
 To install the docker environment, first edit the `docker_env/Makefile`:
 ```
