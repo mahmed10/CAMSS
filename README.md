@@ -75,13 +75,40 @@ Four Dataset is used in the work
 **Modify the trainlist and vallist file to edit train and test split**
 
 ### Dataset structure
+| **Cityscapes Dataset** | **ACDC Dataset** |
+|------------------------|------------------|
+| ```                   | ```              |
+| |-CityScapes          | |-ACDC           |
+| |----leftImg8bit      | |----rgb_anon    |
+| |    |----train       | |    |----fog    |
+| |    |    |--aachen   | |    |    |--train → GOPR0475, etc. |
+| |    |----val         | |    |----rain    |
+| |----gtFine           | |    |----snow    |
+| |    |----train       | |----gt          |
+| |    |    |--aachen   | |    |----fog    |
+| |    |----val         | |    |----rain   |
+| |----trainlist.txt    | |    |----snow   |
+| |----vallist.txt      | |----vallist_fog.txt |
+| |----cityscape.yaml   | |----vallist_rain.txt |
+|                        | |----vallist_snow.txt |
+|                        | |----acdc.yaml        |
+| ```                   | ```              |
 
-| Dataset           | Directory Structure |
-|-------------------|---------------------|
-| **Cityscapes**    | ```<br>CityScapes/<br>├── leftImg8bit/<br>│   ├── train/<br>│   │   ├── aachen/ ...<br>│   └── val/<br>├── gtFine/<br>│   ├── train/<br>│   │   ├── aachen/ ...<br>│   └── val/<br>├── trainlist.txt<br>├── vallist.txt<br>└── cityscape.yaml<br>``` |
-| **ACDC**          | ```<br>ACDC/<br>├── rgb_anon/<br>│   ├── fog/train/...<br>│   ├── rain/train/...<br>│   └── snow/train/...<br>├── gt/<br>│   ├── fog/train/...<br>│   ├── rain/train/...<br>│   └── snow/train/...<br>├── vallist_fog.txt<br>├── vallist_rain.txt<br>├── vallist_snow.txt<br>└── acdc.yaml<br>``` |
-| **SemanticKITTI** | ```<br>SemanticKitti/<br>├── training/image_02/0000 ...<br>├── kitti-step/panoptic_maps/<br>│   ├── train/0000 ...<br>│   └── val/...<br>├── trainlist.txt<br>├── vallist.txt<br>└── semantickitti.yaml<br>``` |
-| **CADEdgeTune**   | ```<br>CADEdgeTune/<br>├── SEQ1/Images, LabelMasks<br>├── SEQ2/Images, LabelMasks<br>...<br>├── SEQ17/...<br>├── all.txt<br>├── trainlist.txt<br>├── vallist.txt<br>└── cadedgetune.yaml<br>``` |
+
+| **SemanticKITTI Dataset** | **CADEdgeTune Dataset** |
+|---------------------------|--------------------------|
+| ```                      | ```                      |
+| |-SemanticKitti          | |-CADEdgeTune            |
+| |----training/image_02   | |----SEQ1                |
+| |    |--0000             | |    |--Images           |
+| |    |--0001 ...         | |    |--LabelMasks       |
+| |----kitti-step          | |----SEQ2, ..., SEQ17    |
+| |    |--panoptic_maps    | |----trainlist.txt       |
+| |        |--train/val    | |----vallist.txt         |
+| |----trainlist.txt       | |----all.txt             |
+| |----vallist.txt         | |----cadedgetune.yaml    |
+| |----semantickitti.yaml  |                          |
+| ```                      | ```                      |
 
 
 
