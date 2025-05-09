@@ -63,8 +63,7 @@ make docker-run
 - To stop the environmnet: `make docker-stop`
 - To resume the environmente: `make docker-resume`
 
-For coding open a web browser ip_address:jupyter_port
-```http://localhost:18888```
+For coding open a web browser `ip_address:jupyter_port` e.g.,`http://localhost:18888`
 
 ## Dataset
 Four Dataset is used in the work
