@@ -13,6 +13,8 @@ This is a PyTorch/GPU implementation of the paper [CAM-Seg: A Continuous-valued 
 }
 ```
 
+HuggingFace Repo: [https://huggingface.co/mahmed10](https://huggingface.co/mahmed10)
+
 ## Abstract
 Traditional transformer-based semantic segmentation relies on quantized embeddings. However, our analysis reveals that autoencoder accuracy on segmentation mask using quantized embeddings (e.g. VQ-VAE) is 8\% lower than continuous-valued embeddings  (e.g. KL-VAE). Motivated by this, we propose a continuous-valued embedding framework for semantic segmentation. By reformulating semantic mask generation as a continuous image-to-embedding diffusion process, our approach eliminates the need for discrete latent representations while preserving fine-grained spatial and semantic details. Our key contribution includes a diffusion-guided autoregressive transformer that learns a continuous semantic embedding space by modeling long-range dependencies in image features. Our framework contains a unified architecture combining a VAE encoder for continuous feature extraction, a diffusion-guided transformer for conditioned embedding generation, and a VAE decoder for semantic mask reconstruction. Our setting facilitates zero-shot domain adaptation capabilities enabled by the continuity of the embedding space. Experiments across diverse datasets (e.g., Cityscapes and domain-shifted variants) demonstrate state-of-the-art robustness to distribution shifts, including adverse weather (e.g., fog, snow) and viewpoint variations. Our model also exhibits strong noise resilience, achieving robust performance ($\approx$ 95\% AP compared to baseline) under gaussian noise, moderate motion blur, and moderate brightness/contrast variations, while experiencing only a moderate impact ($\approx$ 90\% AP compared to baseline) from 50\% salt and pepper noise, saturation and hue shifts.
 
@@ -75,41 +77,104 @@ Four Dataset is used in the work
 **Modify the trainlist and vallist file to edit train and test split**
 
 ### Dataset structure
-| **Cityscapes Dataset** | **ACDC Dataset** |
-|------------------------|------------------|
-| ```                   | ```              |
-| |-CityScapes          | |-ACDC           |
-| |----leftImg8bit      | |----rgb_anon    |
-| |    |----train       | |    |----fog    |
-| |    |    |--aachen   | |    |    |--train → GOPR0475, etc. |
-| |    |----val         | |    |----rain    |
-| |----gtFine           | |    |----snow    |
-| |    |----train       | |----gt          |
-| |    |    |--aachen   | |    |----fog    |
-| |    |----val         | |    |----rain   |
-| |----trainlist.txt    | |    |----snow   |
-| |----vallist.txt      | |----vallist_fog.txt |
-| |----cityscape.yaml   | |----vallist_rain.txt |
-|                        | |----vallist_snow.txt |
-|                        | |----acdc.yaml        |
-| ```                   | ```              |
+- Cityscapes Dataset
+```
+|-CityScapes
+|----leftImg8bit 
+|--------train
+|------------aachen #contians the RGB images
+|------------bochum #contians the RGB images
+|................
+|------------zurich #contians the RGB images
+|--------val
+|................
+|----gtFine 
+|--------train
+|------------aachen #contians the RGB images #contains semantic segmentation labels
+|------------bochum #contians the RGB images #contains semantic segmentation labels
+|................
+|------------zurich #contians the RGB images #contains semantic segmentation labels
+|--------val
+|................
+|----trainlist.txt #image list used for training
+|----vallist.txt #image list used for testing
+|----cityscape.yaml #configuration file for CityScapes dataset
+```
 
+- ACDC Dataset
+```
+|-ACDC
+|----rgb_anon 
+|--------fog
+|------------train
+|----------------GOPR0475 #contians the RGB images
+|----------------GOPR0476 #contians the RGB images
+|................
+|----------------GP020478 #contians the RGB images
+|------------val
+|................
+|--------rain
+|................
+|--------snow
+|................
+|----gt 
+|--------fog
+|------------train
+|----------------GOPR0475 #contains semantic segmentation labels
+|----------------GOPR0476 #contains semantic segmentation labels
+|................
+|----------------GP020478 #contains semantic segmentation labels
+|------------val
+|................
+|--------rain
+|................
+|--------snow
+|................
+|----vallist_fog.txt #image list used for testing fog data
+|----vallist_rain.txt #image list used for testing rain data
+|----vallist_snow.txt #image list used for testing snow data
+|----acdc.yaml #configuration file for ACDC dataset
+```
 
-| **SemanticKITTI Dataset** | **CADEdgeTune Dataset** |
-|---------------------------|--------------------------|
-| ```                      | ```                      |
-| |-SemanticKitti          | |-CADEdgeTune            |
-| |----training/image_02   | |----SEQ1                |
-| |    |--0000             | |    |--Images           |
-| |    |--0001 ...         | |    |--LabelMasks       |
-| |----kitti-step          | |----SEQ2, ..., SEQ17    |
-| |    |--panoptic_maps    | |----trainlist.txt       |
-| |        |--train/val    | |----vallist.txt         |
-| |----trainlist.txt       | |----all.txt             |
-| |----vallist.txt         | |----cadedgetune.yaml    |
-| |----semantickitti.yaml  |                          |
-| ```                      | ```                      |
+- SemanticKitti Dataset
+```
+|-SemanticKitti
+|----training 
+|--------image_02
+|------------0000 #contians the RGB images
+|------------0001 #contians the RGB images
+|................
+|------------0020 #contians the RGB images
+|----kitti-step
+|--------panoptic_maps
+|------------train
+|----------------0000 #contains semantic segmentation labels
+|----------------0001 #contains semantic segmentation labels
+|................
+|----------------0020 #contains semantic segmentation labels
+|------------val
+|................
+|----trainlist.txt #image list used for training
+|----vallist.txt #image list used for testing
+|----semantickitti.yaml #configuration file for SemanticKitti dataset
+```
 
+- CADEdgeTune Dataset
+```
+|-CADEdgeTune
+|----SEQ1
+|--------Images #contians the RGB images
+|--------LabelMasks #contains semantic segmentation labels
+|----SEQ2
+|--------Images #contians the RGB images
+|--------LabelMasks #contains semantic segmentation labels
+|................
+|----SEQ17
+|----all.txt #image list complete
+|----trainlist.txt #image list used for training
+|----vallist.txt #image list used for testing
+|----cadedgetune.yaml #configuration file for CADEdgeTune dataset
+```
 
 
 ## Weights
