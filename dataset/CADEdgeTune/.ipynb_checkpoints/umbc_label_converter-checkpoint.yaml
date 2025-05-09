@@ -1,0 +1,68 @@
+learning_map:
+  162 : 33
+  350 : 15
+  210 : 11
+  160 : 28
+  142 : 26
+  90 : 29
+  185 : 5
+  0 : 0
+  496 : 13
+  525 : 14
+  230 : 32
+  384 : 0
+  580 : 9
+  300 : 24
+  459 : 17
+  520 : 10
+  255 : 25
+  320 : 7
+  750 : 7
+  511 : 8
+  380 : 23
+  10 : 4
+  555 : 22
+  450 : 19
+  440 : 20
+  110 : 30
+  180 : 31
+  70 : 27
+  360 : 12
+  284 : 21
+
+name:
+  0 : unlabeled
+  1 : ego_vehicle
+  2 : rectification_border
+  3 : out_of_roi
+  4 : static
+  5 : dynamic
+  6 : ground
+  7 : road
+  8 : sidewalk
+  9 : parking
+  10: rail_track
+  11: building
+  12: wall
+  13: fence
+  14: guard_rail
+  15: bridge
+  16: tunnel
+  17: pole
+  18: polegroup
+  19: traffic_light
+  20: traffic_sign
+  21: vegetation
+  22: terrain
+  23: sky
+  24: person
+  25: rider
+  26: car
+  27: truck
+  28: bus
+  29: caravan
+  30: trailer
+  31: train
+  32: motorcycle
+  33: bicycle
+  -1: license_plate
