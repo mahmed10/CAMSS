@@ -78,23 +78,102 @@ Four Dataset is used in the work
 - Cityscapes Dataset
 ```
 |-CityScapes
-|----leftImg8bit #contians the RGB images
-|----gtFine #contains semantic segmentation labels
+|----leftImg8bit 
+|--------train
+|------------aachen #contians the RGB images
+|------------bochum #contians the RGB images
+|................
+|------------zurich #contians the RGB images
+|--------val
+|................
+|----gtFine 
+|--------train
+|------------aachen #contians the RGB images #contains semantic segmentation labels
+|------------bochum #contians the RGB images #contains semantic segmentation labels
+|................
+|------------zurich #contians the RGB images #contains semantic segmentation labels
+|--------val
+|................
 |----trainlist.txt #image list used for training
 |----vallist.txt #image list used for testing
-|----cityscape.yaml #configuration file for Cityscapes dataset
+|----cityscape.yaml #configuration file for CityScapes dataset
 ```
 
 - ACDC Dataset
 ```
 |-ACDC
-|----rgb_anon #contians the RGB images
-|----gt #contains semantic segmentation labels
+|----rgb_anon 
+|--------fog
+|------------train
+|----------------GOPR0475 #contians the RGB images
+|----------------GOPR0476 #contians the RGB images
+|................
+|----------------GP020478 #contians the RGB images
+|------------val
+|................
+|--------rain
+|................
+|--------snow
+|................
+|----gt 
+|--------fog
+|------------train
+|----------------GOPR0475 #contains semantic segmentation labels
+|----------------GOPR0476 #contains semantic segmentation labels
+|................
+|----------------GP020478 #contains semantic segmentation labels
+|------------val
+|................
+|--------rain
+|................
+|--------snow
+|................
 |----vallist_fog.txt #image list used for testing fog data
 |----vallist_rain.txt #image list used for testing rain data
 |----vallist_snow.txt #image list used for testing snow data
 |----acdc.yaml #configuration file for ACDC dataset
 ```
+
+- SemanticKitti Dataset
+```
+|-SemanticKitti
+|----training 
+|--------image_02
+|------------0000 #contians the RGB images
+|------------0001 #contians the RGB images
+|................
+|------------0020 #contians the RGB images
+|----kitti-step
+|--------panoptic_maps
+|------------train
+|----------------0000 #contains semantic segmentation labels
+|----------------0001 #contains semantic segmentation labels
+|................
+|----------------0020 #contains semantic segmentation labels
+|------------val
+|................
+|----trainlist.txt #image list used for training
+|----vallist.txt #image list used for testing
+|----semantickitti.yaml #configuration file for SemanticKitti dataset
+```
+
+- CADEdgeTune Dataset
+```
+|-CADEdgeTune
+|----SEQ1
+|--------Images #contians the RGB images
+|--------LabelMasks #contains semantic segmentation labels
+|----SEQ2
+|--------Images #contians the RGB images
+|--------LabelMasks #contains semantic segmentation labels
+|................
+|----SEQ17
+|----all.txt #image list complete
+|----trainlist.txt #image list used for training
+|----vallist.txt #image list used for testing
+|----cadedgetune.yaml #configuration file for CADEdgeTune dataset
+```
+
 
 ## Weights
 To download the pretrained weights please visit [Hugging Face Repo](https://huggingface.co/mahmed10/CAM-Seg)
