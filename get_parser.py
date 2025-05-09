@@ -10,7 +10,7 @@ def get_args_parser():
     # Model parameters
     parser.add_argument('--model', default='mar_base', type=str, metavar='MODEL',
                         help='Name of model to train')
-    parser.add_argument('--cpkt_path', default="pretrained_models/mar/city768.16.pth", type=str,
+    parser.add_argument('--ckpt_path', default="pretrained_models/mar/city768.16.pth", type=str,
                         help='model checkpoint path')
 
     # VAE parameters
@@ -77,10 +77,6 @@ def get_args_parser():
     parser.add_argument('--temperature', default=1.0, type=float, help='diffusion loss sampling temperature')
 
     # Dataset parameters
-    parser.add_argument('--data_path', default='/notebooks/diffusion/tiny-imagenet-200', type=str,
-                        help='dataset path')
-    parser.add_argument('--class_num', default=1000, type=int)
-
     parser.add_argument('--output_dir', default='./output_dir',
                         help='path where to save, empty for no saving')
     parser.add_argument('--log_dir', default='./output_dir',
