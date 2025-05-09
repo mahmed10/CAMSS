@@ -158,7 +158,27 @@ dataset_train = cityscapes.CityScapes('dataset/CityScapes/vallist.txt', data_set
 Run all the blocks
 
 ## Training
-**We will release the training code by May 10th**
+
+### From Scratch
+
+Run the following code in terminal
+```
+torchrun --nproc_per_node=4 train.py
+```
+
+it will save checkpoint in `output_dir/[year.month.day.hour.min]` folder, for e.g. `output_dir/2025.05.09.02.27`
+
+### Resume Training
+
+Run the following code in terminal
+```
+torchrun --nproc_per_node=4 train.py --resume [year.month.day.hour.min]
+```
+
+Here is an example code
+```
+torchrun --nproc_per_node=4 train.py --resume 2025.05.09.02.27
+```
 
 ## Acknowlegement
 The code is developed on top following codework
