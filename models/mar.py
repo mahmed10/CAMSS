@@ -29,7 +29,6 @@ class MAR(nn.Module):
                  vae_embed_dim=16,
                  mask_ratio_min=0.7,
                  label_drop_prob=0.1,
-                 class_num=1000,
                  attn_dropout=0.1,
                  proj_dropout=0.1,
                  buffer_size=64,
@@ -54,9 +53,7 @@ class MAR(nn.Module):
         self.grad_checkpointing = grad_checkpointing
 
         # --------------------------------------------------------------------------
-        # Class Embedding
-        self.num_classes = class_num
-        # self.class_emb = nn.Embedding(class_num, encoder_embed_dim)
+        # image drop
         self.label_drop_prob = label_drop_prob
         # Fake class embedding for CFG's unconditional generation
         # self.fake_latent = nn.Parameter(torch.zeros(1, encoder_embed_dim))
