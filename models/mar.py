@@ -246,9 +246,9 @@ class MAR(nn.Module):
         y = self.patchify(labels)
         gt_latents = torch.cat([x, y], dim=1).clone().detach()
         orders = self.sample_orders(bsz=y.size(0))
-        # mask = self.random_masking(x, orders)
-        mask = torch.cat([torch.zeros(y.size(0), self.seq_len), torch.ones(y.size(0), self.seq_len)], dim=1)
-        mask = mask.cuda()
+        mask = self.random_masking(x, orders)
+        mask = torch.cat([torch.zeros(y.size(0), self.seq_len).cuda(), mask], dim=1)
+        # mask = torch.cat([torch.zeros(y.size(0), self.seq_len), torch.ones(y.size(0), self.seq_len)], dim=1)
 
         # mae encoder
         x = self.forward_mae_encoder(x, mask, y)

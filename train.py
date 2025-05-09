@@ -294,9 +294,16 @@ def main(args):
         args.output_dir = os.path.join(args.output_dir, args.resume)
 
         logger = logger_file(args.log_dir+'/'+args.resume+'.log')
-        with open(args.log_dir+'/'+args.resume+'.log', 'r') as infile:
-            for line in infile:
-                logger.info(line.rstrip())
+        if os.path.exists(args.log_dir+'/'+args.resume+'.log'):
+            with open(args.log_dir+'/'+args.resume+'.log', 'r') as infile:
+                for line in infile:
+                    logger.info(line.rstrip())
+        else:
+            logger.info("All the arguments")
+            for k, v in vars(args).items():
+                logger.info(f"{k}: {v}")
+            logger.info("\n\n Loss information")
+
 
 
     else:
@@ -311,7 +318,6 @@ def main(args):
         logger.info("All the arguments")
         for k, v in vars(args).items():
             logger.info(f"{k}: {v}")
-
         logger.info("\n\n Loss information")
     
 
