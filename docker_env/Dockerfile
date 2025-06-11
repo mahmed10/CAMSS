@@ -1,4 +1,4 @@
-# Use a base image with CUDA 12.2 and Python 3.8
+# Use a base image with CUDA 12.2 and Python 3.9
 FROM nvidia/cuda:12.2.2-cudnn8-devel-ubuntu20.04
 
 LABEL maintainer="Masud Ahmed <mahmed10@umbc.edu>"
@@ -6,11 +6,11 @@ LABEL maintainer="Masud Ahmed <mahmed10@umbc.edu>"
 # Set environment variable to avoid interactive prompts
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install Python 3.8 and necessary dependencies
+# Install Python 3.9 and necessary dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    python3.8 \
-    python3.8-dev \
-    python3.8-distutils \
+    python3.9 \
+    python3.9-dev \
+    python3.9-distutils \
     ffmpeg \
     git \
     libsm6 \
@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     rm -rf /var/lib/apt/lists/*
 
 # Update pip and install required Python packages
-RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.8 && \
+RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.9 && \
     pip install --upgrade pip
 
 # Install the specified Python libraries
@@ -180,7 +180,7 @@ RUN pip --no-cache-dir install \
 
 
 # Create a symbolic link for python3 to python
-RUN ln -s /usr/bin/python3.8 /usr/bin/python
+RUN ln -s /usr/bin/python3.9 /usr/bin/python
 
 # Expose the port for JupyterLab and code-server
 EXPOSE 8443
